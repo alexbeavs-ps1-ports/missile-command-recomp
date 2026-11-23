@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "missile-command-psx",
+  "name": "Missile Command",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "missile-command-recomp",
+  "rom_identity": {
+    "crc32": [
+      "fd47a882"
+    ],
+    "md5": [
+      "97ce8032fd1015a19bbba02f15feba38"
+    ],
+    "sha1": [
+      "dd560c2433af75074fe0f30cd90f25be6ab730ac"
+    ],
+    "disc_serials": [
+      "SLUS-00992"
+    ],
+    "sizes": [
+      305654160
+    ],
+    "filenames": [
+      "Missile Command (USA).cue",
+      "Missile Command (USA) (Track 1).bin"
+    ],
+    "track_counts": [
+      2
+    ],
+    "disc_fps": [
+      "1d2842f7780c65e9bcef3e954dd943d0f7b2e2ed3fe2b5c5c1cb6a0709387e6b"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH1001.BIN",
+    "profile": "SCPH1001",
+    "crc32": [
+      "37157331"
+    ],
+    "md5": [
+      "924e392ed05558ffdb115408c263dccf"
+    ],
+    "sha1": [
+      "10155d8d6e6e832d6ea66db9bc098321fb5e8ebf"
+    ],
+    "sha256": [
+      "71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH1001.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/missile-command-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "missile-command-*-windows-x64.zip",
+      "linux-x64": "missile-command-*-linux-x64.zip",
+      "macos-arm64": "missile-command-*-macos-arm64.zip",
+      "macos-x64": "missile-command-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "missile_command.exe",
+    "linux": "missile_command",
+    "macos": "missile_command"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/missile-command-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}

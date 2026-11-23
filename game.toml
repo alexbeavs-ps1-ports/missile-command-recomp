@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Missile Command"
+id = "SLUS-00992"
+players = 2
+exe = "disc/SLUS_009.92"
+disc = "disc/Missile Command (USA).cue"
+discs = ["disc/Missile Command (USA).cue"]
+disc_serials = ["SLUS-00992"]
+load_address = "0x80010000"
+entry_pc = "0x800102D4"
+text_size = "0x00081800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Missile Command (USA) (Track 1).bin"
+cue_name = "Missile Command (USA).cue"
+boot_exe = "SLUS_009.92"
+known_sizes = [305654160]
+known_md5 = [
+  "97ce8032fd1015a19bbba02f15feba38",
+]
+known_sha1 = [
+  "dd560c2433af75074fe0f30cd90f25be6ab730ac",
+]
+known_crc32 = [
+  "fd47a882",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Missile Command Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 2
+required_disc_fp = "1d2842f7780c65e9bcef3e954dd943d0f7b2e2ed3fe2b5c5c1cb6a0709387e6b"
